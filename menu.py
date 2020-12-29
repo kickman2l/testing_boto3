@@ -26,6 +26,7 @@ def two():
         detectors_in_regions = gd.get_detectors_ids(gd.get_us_aws_regions())
         gd.create_ip_sets(detectors_in_regions, choice)
         gd.create_threat_sets(detectors_in_regions, choice)
+        print_ok('Lists added to guard duty.')
     else:
         print_err('Threat and trusted files not exist. Check S3.')
 
