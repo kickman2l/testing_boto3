@@ -104,7 +104,7 @@ def seven():
         choice = input('Enter S3 Bucket name: ')
     if s3.check_threat_trusted_files(choice):
         s3.download_file_from_s3(choice, TRUSTED_LIST_NAME)
-        if s3.check_rules_in_file_exist(TRUSTED_LIST_NAME):
+        if s3.check_rules_in_file_exists(TRUSTED_LIST_NAME):
             s3.list_rules_in_file(TRUSTED_LIST_NAME)
             while len(rule_num) == 0:
                 rule_num = input('Enter rule number to delete: ')
@@ -170,7 +170,7 @@ def ten():
         choice = input('Enter S3 Bucket name: ')
     if s3.check_threat_trusted_files(choice):
         s3.download_file_from_s3(choice, THREAT_LIST_NAME)
-        if s3.check_rules_in_file_exist(THREAT_LIST_NAME):
+        if s3.check_rules_in_file_exists(THREAT_LIST_NAME):
             s3.list_rules_in_file(THREAT_LIST_NAME)
             while len(rule_num) == 0:
                 rule_num = input('Enter rule number to delete: ')
