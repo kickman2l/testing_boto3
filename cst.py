@@ -1,6 +1,4 @@
-"""
-    Variables definition
-"""
+""" Variables definition. """
 TRUSTED_LIST_NAME = 'trusted_list'
 THREAT_LIST_NAME = 'threat_list'
 
