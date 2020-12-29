@@ -21,13 +21,13 @@ def two():
     """ Add trusted and threat IP lists to guard duty. """
     choice = ''
     while len(choice) == 0:
-        choice = input('Enter S3 Bucket name:')
+        choice = input('Enter S3 Bucket name: ')
     if s3.check_threat_trusted_files(choice):
         detectors_in_regions = gd.get_detectors_ids(gd.get_us_aws_regions())
         gd.create_ip_sets(detectors_in_regions, choice)
         gd.create_threat_sets(detectors_in_regions, choice)
     else:
-        print_err('Threat and trusted files not exists. Check S3.')
+        print_err('Threat and trusted files not exist. Check S3.')
 
 
 def three():
@@ -65,7 +65,7 @@ def five():
         s3.upload_tt_file(choice, TRUSTED_LIST_NAME)
         print_ok("New value added to trusted file.")
     else:
-        print_err('Threat or trusted files not exists. Check S3.')
+        print_err('Threat or trusted files not exist. Check S3.')
     s3.cleanup_tmp_dir()
 
 
@@ -89,7 +89,7 @@ def six():
         s3.upload_tt_file(choice, TRUSTED_LIST_NAME)
         print_ok('Trusted file edited.')
     else:
-        print_err('Threat and trusted files not exists. Check S3.')
+        print_err('Threat and trusted files not exist. Check S3.')
     s3.cleanup_tmp_dir()
 
 
@@ -103,7 +103,7 @@ def seven():
         choice = input('Enter S3 Bucket name: ')
     if s3.check_threat_trusted_files(choice):
         s3.download_file_from_s3(choice, TRUSTED_LIST_NAME)
-        if s3.check_rules_in_file_exists(TRUSTED_LIST_NAME):
+        if s3.check_rules_in_file_exist(TRUSTED_LIST_NAME):
             s3.list_rules_in_file(TRUSTED_LIST_NAME)
             while len(rule_num) == 0:
                 rule_num = input('Enter rule number to delete: ')
@@ -113,7 +113,7 @@ def seven():
         else:
             print_err("Empty trusted file. Add entry before remove.")
     else:
-        print_err('Threat and trusted files not exists. Check S3.')
+        print_err('Threat and trusted files not exist. Check S3.')
     s3.cleanup_tmp_dir()
 
 
@@ -133,7 +133,7 @@ def eight():
         s3.upload_tt_file(choice, THREAT_LIST_NAME)
         print_ok("New value added to threat file.")
     else:
-        print_err('Threat or trusted files not exists. Check S3.')
+        print_err('Threat or trusted files not exist. Check S3.')
     s3.cleanup_tmp_dir()
 
 
@@ -169,7 +169,7 @@ def ten():
         choice = input('Enter S3 Bucket name: ')
     if s3.check_threat_trusted_files(choice):
         s3.download_file_from_s3(choice, THREAT_LIST_NAME)
-        if s3.check_rules_in_file_exists(THREAT_LIST_NAME):
+        if s3.check_rules_in_file_exist(THREAT_LIST_NAME):
             s3.list_rules_in_file(THREAT_LIST_NAME)
             while len(rule_num) == 0:
                 rule_num = input('Enter rule number to delete: ')
@@ -179,7 +179,7 @@ def ten():
         else:
             print_err("Empty threat file. Add entry before remove.")
     else:
-        print_err('Threat and trusted files not exists. Check S3.')
+        print_err('Threat and trusted files not exist. Check S3.')
     s3.cleanup_tmp_dir()
 
 
